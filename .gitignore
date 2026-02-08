@@ -3,4 +3,4 @@
 .DS_Store
 
 # vim read/write history
-.vim/.netrwhist 
+.vim/.netrwhist

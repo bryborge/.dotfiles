@@ -1,0 +1,30 @@
+# If not running interactively, bail.
+[[ $- != *i* ]] && return
+
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+
+export HISTSIZE=100000
+export SAVEHIST=100000
+
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+if [ -f ~/.zsh_aliases ]; then
+    . ~/.zsh_aliases
+fi
+
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:git*' formats "%F{cyan}[%b%f%m%u%c%a%F{cyan}]"
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr ' %F{green}✚%f'
+zstyle ':vcs_info:*' unstagedstr ' %F{red}*%f'
+
+precmd() {
+    print
+    vcs_info
+    print -P "%B%F{yellow}%~%f%b ${vcs_info_msg_0_}"
+}
+
+PROMPT="%B%F{magenta}(%*)%f %(!.#.$)%b "
