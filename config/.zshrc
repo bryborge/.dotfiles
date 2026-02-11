@@ -15,7 +15,7 @@ fi
 
 autoload -Uz vcs_info
 
-zstyle ':vcs_info:git*' formats "%B%F{cyan}[%b%f%m%u%c%a%F{cyan}]"
+zstyle ':vcs_info:git*' formats "%B%F{cyan}[%F{green}%b%f%m%u%c%a%F{cyan}]"
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr ' %F{red}✚%f'
