@@ -10,14 +10,22 @@ set -euo pipefail
 #   repository copy.
 # - At the end, offers to clean up any backups created.
 main() {
-  check_exists .zsh_aliases
-  check_exists .zshrc
-  check_exists .gitattributes
-  check_exists .gitconfig
-  check_exists .gitignore
-  check_exists .gitprompt
-  check_exists .vim
-  check_exists .vimrc
+  files=(
+    .bash_aliases
+    .bashrc
+    .gitattributes
+    .gitconfig
+    .gitignore
+    .gitprompt
+    .vim
+    .vimrc
+    .zsh_aliases
+    .zshrc
+  )
+
+  for f in "${files[@]}"; do
+    check_exists "$f"
+  done
 
   printf "\n"
 
@@ -70,7 +78,7 @@ handle_choice() {
 # Parameters:
 #   $1 - relative path of the file in the repository to link from.
 create_symlink() {
-  ln -s $(pwd)/$1 ~/$1
+  ln -s $(pwd)/config/$1 ~/$1
   echo "    \"~/$1\" symlink created!"
 }
 
