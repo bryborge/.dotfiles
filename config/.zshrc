@@ -28,3 +28,5 @@ precmd() {
 }
 
 PROMPT="%B%F{magenta}(%*)%f %(!.#.$)%b "
+
+. "$HOME/.local/bin/env"

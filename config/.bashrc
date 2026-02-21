@@ -17,14 +17,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-        . /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
-    fi
-fi
-
 NO_COLOR=$(echo -en '\033[00m')
 RED=$(echo -en '\033[00;31m')
 GREEN=$(echo -en '\033[00;32m')
@@ -56,7 +48,7 @@ export GIT_PS1_SHOWCOLORHINTS=true
 PROMPT_COMMAND=set_bash_prompt
 
 function set_bash_prompt() {
-    PS1="\n$(get_venv_name_with_color)${BOLD_YELLOW}\w${BOLD_CYAN}$(__git_ps1 " [%s")${BOLD_CYAN}]\n${BOLD_PURPLE}(\t)${NO_COLOR} $ "
+    PS1="\n$(get_venv_name_with_color)${BOLD_YELLOW}\w${BOLD_CYAN}$(__git_ps1 " %s")${BOLD_CYAN}\n${BOLD_PURPLE}(\t)${NO_COLOR} $ "
 }
 
 function get_venv_name_with_color() {
@@ -64,3 +56,5 @@ function get_venv_name_with_color() {
         echo "${BOLD_PURPLE}(${VIRTUAL_ENV##*/})${NO_COLOR} "
     fi
 }
+
+. "$HOME/.local/bin/env"
