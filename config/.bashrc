@@ -40,6 +40,16 @@ if [ -f ~/.gitcompletion ]; then
     . ~/.gitcompletion
 fi
 
+# PYTHON
+
+if [ -f "$HOME/.pyenv" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init - bash)"
+fi
+
+# PROMPT
+
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_DESCRIBE_STYLE="default"
@@ -56,5 +66,3 @@ function get_venv_name_with_color() {
         echo "${BOLD_PURPLE}(${VIRTUAL_ENV##*/})${NO_COLOR} "
     fi
 }
-
-. "$HOME/.local/bin/env"

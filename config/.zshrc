@@ -13,6 +13,24 @@ if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
+if [ -f ~/.gitprompt ]; then
+    . ~/.gitprompt
+fi
+
+if [ -f ~/.gitcompletion ]; then
+    . ~/.gitcompletion
+fi
+
+# PYTHON
+
+if [ -f "$HOME/.pyenv" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init - bash)"
+fi
+
+# PROMPT
+
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:git*' formats "%B%F{cyan}[%F{green}%b%f%m%u%c%a%F{cyan}]"
@@ -28,5 +46,3 @@ precmd() {
 }
 
 PROMPT="%B%F{magenta}(%*)%f %(!.#.$)%b "
-
-. "$HOME/.local/bin/env"
