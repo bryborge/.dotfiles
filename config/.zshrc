@@ -23,10 +23,17 @@ fi
 
 # PYTHON
 
-if [ -f "$HOME/.pyenv" ]; then
+if [ -d "$HOME/.pyenv" ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init - bash)"
+fi
+
+# NODE
+
+if [ -d "$HOME/.nodenv" ]; then
+    eval "$(~/.nodenv/bin/nodenv init - --no-rehash bash)"
+    export PATH=$PATH:$(npm config get prefix)/bin
 fi
 
 # PROMPT
