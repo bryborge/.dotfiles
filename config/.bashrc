@@ -17,20 +17,20 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-NO_COLOR=$(echo -en '\033[00m')
-RED=$(echo -en '\033[00;31m')
-GREEN=$(echo -en '\033[00;32m')
-YELLOW=$(echo -en '\033[00;33m')
-BLUE=$(echo -en '\033[00;34m')
-PURPLE=$(echo -en '\033[00;35m')
-CYAN=$(echo -en '\033[00;36m')
+NO_COLOR=$'\[\e[0m\]'
+RED=$'\[\e[0;31m\]'
+GREEN=$'\[\e[0;32m\]'
+YELLOW=$'\[\e[0;33m\]'
+BLUE=$'\[\e[0;34m\]'
+PURPLE=$'\[\e[0;35m\]'
+CYAN=$'\[\e[0;36m\]'
 
-BOLD_RED=$(echo -en '\033[31;01m')
-BOLD_GREEN=$(echo -en '\033[32;01m')
-BOLD_YELLOW=$(echo -en '\033[33;01m')
-BOLD_BLUE=$(echo -en '\033[34;01m')
-BOLD_PURPLE=$(echo -en '\033[35;01m')
-BOLD_CYAN=$(echo -en '\033[36;01m')
+BOLD_RED=$'\[\e[1;31m\]'
+BOLD_GREEN=$'\[\e[1;32m\]'
+BOLD_YELLOW=$'\[\e[1;33m\]'
+BOLD_BLUE=$'\[\e[1;34m\]'
+BOLD_PURPLE=$'\[\e[1;35m\]'
+BOLD_CYAN=$'\[\e[1;36m\]'
 
 if [ -f ~/.gitprompt ]; then
     . ~/.gitprompt
