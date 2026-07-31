@@ -73,3 +73,12 @@ function get_venv_name_with_color() {
         echo "${BOLD_PURPLE}(${VIRTUAL_ENV##*/})${NO_COLOR} "
     fi
 }
+
+. "$HOME/.local/bin/env"
+
+# fnm
+FNM_PATH="/home/bryborge/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell bash)"
+fi
