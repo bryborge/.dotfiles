@@ -40,19 +40,11 @@ if [ -f ~/.gitcompletion ]; then
     . ~/.gitcompletion
 fi
 
-# PYTHON
+# NODE (Fast Node Manager)
 
-if [ -d "$HOME/.pyenv" ]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init - bash)"
-fi
-
-# NODE
-
-if [ -d "$HOME/.nodenv" ]; then
-    eval "$(~/.nodenv/bin/nodenv init - --no-rehash bash)"
-    export PATH=$PATH:$(npm config get prefix)/bin
+if [ -d "$HOME/.local/share/fnm" ]; then
+  export PATH="$HOME/.local/share/fnm:$PATH"
+  eval "$(fnm env --shell bash)"
 fi
 
 # PROMPT
@@ -75,10 +67,3 @@ function get_venv_name_with_color() {
 }
 
 . "$HOME/.local/bin/env"
-
-# fnm
-FNM_PATH="/home/bryborge/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "$(fnm env --shell bash)"
-fi

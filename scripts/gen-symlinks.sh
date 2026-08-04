@@ -19,8 +19,6 @@ main() {
     .gitprompt
     .vim
     .vimrc
-    .zsh_aliases
-    .zshrc
   )
 
   for f in "${files[@]}"; do
@@ -51,7 +49,7 @@ check_exists() {
 #
 # Parameters:
 #   $1 - single-letter choice: "i" (ignore), "b" (backup), "d" (destroy)
-#   $2 - relative path of the target file (e.g. .zshrc)
+#   $2 - relative path of the target file (e.g. .bashrc)
 #
 # Actions:
 #  - "i": leave the existing target alone and continue.
