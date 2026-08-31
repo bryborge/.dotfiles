@@ -76,7 +76,7 @@ handle_choice() {
 # Parameters:
 #   $1 - relative path of the file in the repository to link from.
 create_symlink() {
-  ln -s $(pwd)/config/$1 ~/$1
+  ln -s $(pwd)/src/$1 ~/$1
   echo "    \"~/$1\" symlink created!"
 }
 

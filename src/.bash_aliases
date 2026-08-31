@@ -1,6 +1,6 @@
 #!/bin/bash
 
-alias grep='grep --color=auto'
+alias grep='rg --color=auto'
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alF'
