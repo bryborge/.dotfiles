@@ -66,4 +66,3 @@ function get_venv_name_with_color() {
     fi
 }
 
-. "$HOME/.local/bin/env"
